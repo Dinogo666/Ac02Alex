@@ -9,8 +9,24 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
+  {
+    path: 'pet-detail',
+    loadChildren: () => import('./pages/pet-detail/pet-detail.module').then( m => m.PetDetailPageModule)
+  },
+  {
+    path: 'pet-detail/:id',
+    loadChildren: () => import('./pages/pet-detail/pet-detail.module').then( m => m.PetDetailPageModule)
+  },
+  {
+    path: 'cuidador-detail',
+    loadChildren: () => import('./pages/cuidador-detail/cuidador-detail.module').then( m => m.CuidadorDetailPageModule)
+  },
+  {
+    path: 'cuidador-detail/:id',
+    loadChildren: () => import('./pages/cuidador-detail/cuidador-detail.module').then( m => m.CuidadorDetailPageModule)
+  }
 ];
 
 @NgModule({
