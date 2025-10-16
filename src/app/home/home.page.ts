@@ -3,6 +3,7 @@ import { PetService, Pet } from '../services/pet';
 import { CuidadorService, Cuidador } from '../services/cuidador';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +19,7 @@ export class HomePage {
   constructor(
     private petService: PetService,
     private cuidadorService: CuidadorService,
+    private authService: AuthService,
     private router: Router,
     private alertController: AlertController
   ) {}
@@ -99,5 +101,14 @@ export class HomePage {
       ],
     });
     await alert.present();
+  }
+
+  async logout() {
+    try {
+      await this.authService.logout();
+      this.router.navigateByUrl('/login');
+    } catch (error) {
+      console.error('Erro ao fazer logout:', error);
+    }
   }
 }

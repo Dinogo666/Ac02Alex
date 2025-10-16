@@ -1,10 +1,19 @@
 <ion-header>
     <ion-toolbar color="primary">
         <ion-title>Lista Pets e Cuidadores</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="logout()">
+                <ion-icon name="log-out-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+    <ion-button expand="full" color="danger" (click)="logout()" class="ion-margin-bottom">
+        Sair
+    </ion-button>
+
     <ion-card>
         <ion-item>
             <ion-label>
